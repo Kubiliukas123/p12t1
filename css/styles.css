@@ -3,3 +3,12 @@
     background-color: blue;
     width: 150px;
 }
+.square{
+    letter-spacing: 2px;
+    line-height: 10px;
+}
+.rndStr{
+    color: red;
+    background-color: blue;
+    width: 300px;
+}

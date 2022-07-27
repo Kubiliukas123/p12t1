@@ -76,7 +76,90 @@
 
     ?>
     <?php
-    echo $act3 = '<p>' . substr($act1,0,1) . " " . substr($act2,0,1) . '</p>';
+    echo $act3 = '<p>' . substr($act1, 0, 1) . ' ' . substr($act2, 0, 1) . '</p>';
+    ?>
+    <?php
+    $count = 0;
+    $text = '';
+    for ($i = 0; $i < 300; $i++) {
+        $task7 = rand(0, 300);
+        if ($task7 > 150) {
+            $count++;
+        }
+        if ($task7 > 275) {
+            $text .= '[' . $task7 . ']';
+        } else {
+            $text .= $task7 . ' ';
+        }
+    }
+    echo '<p> Nuo 150: ' . $count . '</p>';
+    echo '<p>' . $text . '</p>';
+    ?>
+
+    <?php
+    $text2 = '';
+    for ($i = 77; $i < 3000; $i += 77) { 
+        $text2 .= $i . ',';
+    }
+    echo '<p>' . substr($text2, 0, -1) . '</p>';
+    ?>
+
+    <?php
+    for ($i=0; $i < 20; $i++) { 
+        $square = '';
+        for ($a=0; $a < 20; $a++) { 
+            $square .= '*';
+        }
+        echo '<div class="square">' . $square . '</div>';
+    }
+    ?>
+    <?php
+    function fun1($textInH){
+        echo '<h1>' . $textInH . '</h1>';
+    }
+    fun1("aglkdsfgolknmasdlASDASdddf");
+    ?>
+    <?php
+    function fun2($textInH2,$hSize){
+        echo '<h' . $hSize . '>' . $textInH2 . '</h' . $hSize . '>';
+    }
+    fun2("asdvadijfg", 2);
+    fun2("asdvadijfg", 4);
+    fun2("asdvadijfg", 3);
+    fun2("asdvadijfg", 6);
+    fun2("asdvadijfg", 5);
+    ?>
+    <?php
+    function rndStr($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+    function fun3(){
+        $str = rndStr(20);
+        echo '<p class="rndStr">' .$str . '</p>';
+        $tmp = '';
+        for ($i=0; $i < strlen($str); $i++) { 
+            if (is_numeric( $str[$i])) {
+                $tmp .= $str[$i]; 
+            } else {
+                if ($tmp != '') {
+                    echo '<h1>' . '[' . $tmp . ']' . '</h1>';
+                    echo '<p>' . $str[$i] . '</p>';
+                    $tmp = '';
+                } else {
+                    echo '<p>' . $str[$i] . '</p>';
+                }
+                
+            }
+            
+        }
+    }
+     fun3();
     ?>
 </body>
 
